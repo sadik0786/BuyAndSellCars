@@ -1,0 +1,24 @@
+*{margin: 0px; padding: 0px;}
+body {
+  margin: 0 auto;
+background-image:url("../images/bgframe1.jpg");
+background-repeat: no-repeat;
+background-size:100% 720px;
+}
+
+
+.container{
+height:550px;
+width: 250px;
+background-color:rgba(138, 247, 213, 0.35);
+
+border-radius:15px 50px 30px ;
+margin:0 auto;
+margin:auto;
+}
+.container img{
+width:160px;
+height:140px;
+margin: auto;
+}
+
