@@ -17,7 +17,8 @@
         <title>Modify Car Page</title>
     </head>
     <body>
-        <h1>HELLO ! Manager You Can Change Car Details</h1>
+        <h1 align="center">HELLO ! Manager You Can Change Car Details</h1>
+        <br><br>
        <table border="2px" align="center" width="85%" >
             <thead>
             
@@ -56,7 +57,7 @@
                  <td><%=carInfo.getMileage() %> </td>
                  <td><%=carInfo.getBranch()%> </td>
                   
-                <td><img width='160' height='120' src='images/car_images/<%=carInfo.getCarId()%>.jpg'/> </td>
+                <td><img width='160' height='120' src='images/car_images/<%=carInfo.getCarId()%>.jpg' /> </td>
                 <% System.out.println(carInfo.getCarId());%>
                 <td>
                     <form method="post" action="Modify.do">

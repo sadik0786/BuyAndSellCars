@@ -105,13 +105,13 @@
                
                 <h3 style="color:red"><strong> CAR 1</strong></h3>
             </div></div>
-            <form name="COMPARE" method="POST" >
+                <form name="COMPARE" method="POST" action="comp.do" >
     <table class="compare-cars-table compare-cars-pick" cellpadding="10" align='center'>
         <thead >
         <div class="form-group-md-5">
            <div class="ui-select">
-                    <select class="form-control" name="compage" >
-                 <option value="">Select Make</option>
+                    <select class="form-control" name="txt1" >
+                 <option  disabled selected  value="">Select Make</option>
                      <option value="Maruti Suzuki">MARUTI SUZUKI</option>
                       <option value="Hyundai" >HYUNDAI</option>
                       <option value="Volkswagen" >VOLKSWAGEN</option>
@@ -123,8 +123,8 @@
         <br>
         <div class="form-group-md-5">
                 <div class="ui-select">
-                    <select class="form-control" name="compage" >
-                 <option value="">Select Model</option>
+                    <select class="form-control" name="txtm1" >
+                        <option disabled selected value="">Select Model</option>
           <optgroup label="Maruti Suzuki"></optgroup>
                 <option value="Ertiga">MS-ERTIGA</option>
                 <option value="Swift">MS-SWIFT</option>
@@ -156,170 +156,162 @@
         <br>
          <div class="form-group-md-5">
                 <div class="ui-select">
-                    <select class="form-control" name="compage" >
+                    <select class="form-control" name="Car1" >
                 <option value="">Select Variants</option>
-          <optgroup label="Maruti Suzuki"></optgroup>
-                 <optgroup label="MS-ERTIGA "></optgroup>
-                  <option value="LXI">LXI</option>
-                  <option value="LXI (O)">LXI (O)</option>
-                  <option value="LDI">LDI</option>
-                  <option value="LDI(O)">LDI (O)</option>
-                  <option value="VXI">VXI</option>
-                  <option value="VDI">VDI</option>
-                  <option value="VXI">VXI</option>
-                  <option value="VDI">VDI</option>
-                  <option value="ZXI">ZXI</option>
-                  <option value="VXI CNG">VXI CNG</option>
-                  <option value="ZDI">ZDI</option>
-                  <option value="VXI AT">VXI AT</option>
-                   <option value="ZDI PLUS">ZDI PLUS</option>
-                  <option value="ZXI PLUS">ZXI PLUS</option>
-                   <optgroup label="MS-SWIFT "></optgroup>
-                  <option value="LDI BS-IV">LDI BS-IV</option>
-                  <option value="LXI">LXI</option>
-                  <option value="VDI ABS">VDI ABS</option>
-                  <option value="VDI ABS BS-IV ">VDI ABS BS-IV</option>
-                  <option value="VXI">VXI</option>
-                  <option value="VXI ABS">VXI ABS</option>
-                  <option value="ZDI">ZDI</option>
-                  <option value="ZXI">ZXI</option>  
-                  <option value="LDI BS-IV">LDI BS-IV</option>
-                  <option value="LXI">LXI</option>
-                  <option value="VDI ABS">VDI ABS</option>
+       <optgroup label="Maruti Suzuki"></optgroup>
+                 <optgroup label="1 "></optgroup>
+                  <option value="2">LXI</option>
+                  <option value="3">LXI (O)</option>
+                  <option value="4">LDI</option>
+                  <option value="5">LDI (O)</option>
+                  <option value="6">VXI</option>
+                  <option value="7">VDI</option>
+                  <option value="8">VXI</option>
+                  <option value="9">VDI</option>
+                  <option value="10">ZXI</option>
+                  <option value="11 ">VXI CNG</option>
+                  <option value="12">ZDI</option>
+                  <option value="13 ">VXI AT</option>
+                   <option value=" 14">ZDI PLUS</option>
+                  <option value=" 15">ZXI PLUS</option>
+     <optgroup label="MS-SWIFT "></optgroup>
+                  <option value="16">LDI BS-IV</option>
+                  <option value="17">LXI</option>
+                  <option value="18">VDI ABS</option>
+                  <option value="19">VDI ABS BS-IV</option>
+                  <option value="20">VXI</option>
+                  <option value="21">VXI ABS</option>
+                  <option value="22">ZDI</option>
+                  <option value="23">ZXI</option>  
+                  <option value="24">LDI BS-IV</option>
+                  <option value="25">LXI</option>
+                  <option value="26">VDI ABS</option>
                   
        <optgroup label=" MS-S_CROSS "></optgroup>
-                   <option value="DDiS 200 Sigma">DDiS 200 Sigma</option>
-                  <option value="DDiS 200 Delta">DDiS 200 Delta</option>
-                  <option value="DDiS 200 Zeta">DDiS 200 Zeta</option>
-                  <option value="DDiS 200 Alpha ">DDiS 200 Alpha</option>
-                  <option value="DDiS 320 Alpha">DDiS 320 Alpha</option>
+                   <option value="27">DDiS 200 Sigma</option>
+                  <option value="28">DDiS 200 Delta</option>
+                  <option value="29">DDiS 200 Zeta</option>
+                  <option value="30 ">DDiS 200 Alpha</option>
+                  <option value="31">DDiS 320 Alpha</option>
                   
        <optgroup label=" MS-ALTO K10 "></optgroup>         
-                  <option value="LX">LX</option>
-                  <option value="LX(O)">LX(O)</option>
-                  <option value="LXI">LXI</option>
-                  <option value="LXI(O) ">LXI(O)</option>
-                  <option value="VXI">VXI</option>
-                  <option value="VXI (O)">VXI (O)</option>
-                  <option value="LXI GAS">LXI GAS</option>
-                  <option value="VXI AGS">VXI AGS</option>
-                  <option value="LXI CNG (O">LXI CNG (O)</option>
-                  <option value="VXI CNG (O)">VXI CNG (O)</option>
+                  <option value="32">LX</option>
+                  <option value="33">LX(O)</option>
+                  <option value="34">LXI</option>
+                  <option value="35 ">LXI(O)</option>
+                  <option value="36">VXI</option>
+                  <option value="37">VXI (O)</option>
+                  <option value="38">LXI GAS</option>
+                  <option value="39">VXI AGS</option>
+                  <option value="40">LXI CNG (O)</option>
+                  <option value="41">VXI CNG (O)</option>
       <optgroup label="HY-XCENT"></optgroup> 
-                  <option value="E Plus Petrol">E Plus Petrol</option>
-                  <option value="E Diesel ">E Diesel</option>
-                  <option value="S Petrol"> S Petrol</option>
-                  <option value="SX Petrol">SX Petrol</option>
-                  <option value="E Plus Diesel">E Plus Diesel</option>
-                  <option value="S AT Petrol">S AT Petrol</option>
-                  <option value="S Diesel">S Diesel</option>
-                  <option value="SX Petrol (O)">SX Petrol (O))</option>
-                  <option value="SX Diesel">SX Diesel)</option>
-                  <option value="SX Diesel (O)">SX Diesel (O)</option>
+                  <option value="42">E Plus Petrol</option>
+                  <option value="43 ">E Diesel</option>
+                  <option value="44"> S Petrol</option>
+                  <option value="45">SX Petrol</option>
+                  <option value="46">E Plus Diesel</option>
+                  <option value="47">S AT Petrol</option>
+                  <option value="48">S Diesel</option>
+                  <option value="49">SX Petrol (O))</option>
+                  <option value="50">SX Diesel)</option>
+                  <option value="51">SX Diesel (O)</option>
     <optgroup label="HY-I10"></optgroup> 
-                  <option value="1.1 Era">1.1 Era</option>
-                  <option value="1.1 Magna ">1.1 Magna</option>
-                  <option value="1.1 Magna Special Edition"> 1.1 Magna Special Edition</option>
-                  <option value="1.1 Sportz MT">1.1 Sportz MT</option>
-                  <option value="1.1 Sportz MT LPG">1.1 Sportz MT LPG</option>
+                  <option value="52">1.1 Era</option>
+                  <option value="53">1.1 Magna</option>
+                  <option value="54"> 1.1 Magna Special Edition</option>
+                  <option value="55">1.1 Sportz MT</option>
+                  <option value="56">1.1 Sportz MT LPG</option>
     <optgroup label="HY-I20"></optgroup> 
-                  <option value="1.2 Base">1.2 Base</option>
-                  <option value="1.2 S">1.2 S</option>
-                  <option value="1.4 Base"> 1.4 Base</option>
-                  <option value="1.2 SX AVN">1.2 SX AVN</option>
-                  <option value="1.4 S">1.4 S</option>
-                  <option value="1.4 SX AVN">1.4 SX AVN</option>
+                  <option value="57">1.2 Base</option>
+                  <option value="58">1.2 S</option>
+                  <option value="59"> 1.4 Base</option>
+                  <option value="60">1.2 SX AVN</option>
+                  <option value="61">1.4 S</option>
+                  <option value="62">1.4 SX AVN</option>
     <optgroup label="HY-CRETA"></optgroup> 
-                  <option value="1.6 E Petrol">1.6 E Petrol</option>
-                  <option value="1.4 E Plus">1.4 E Plus </option>
-                  <option value="1.6 E Plus"> 1.6 E Plus </option>
-                  <option value="1.4 S">1.4 S</option>
-                  <option value="1.6 SX Plus">1.6 SX Plus </option>
-                  <option value="1.4 S Plus">1.4 S Plus </option>
-                  <option value="1.6 SX Plus Dual Tone ">1.6 SX Plus Dual Tone</option>
-                  <option value="1.6 SX">1.6 SX </option>
-                  <option value="1.6 SX Plus AT">1.6 SX Plus AT</option>
-                  <option value="1.6 SX Plus">1.6 SX Plus</option>
-                  <option value="1.6 S Plus AT">1.6 S Plus AT</option>
-                  <option value="1.6 SX Plus Special Edition"> 1.6 SX Plus Special Edition</option>
-                  <option value="1.6 SX Plus Dual Tone">1.6 SX Plus Dual Tone</option>
-                  <option value="1.6 SX (O)">1.6 SX (O)</option>
-                  <option value="1.6 SX Plus AT">1.6 SX Plus AT</option>
+                  <option value="63">1.6 E Petrol</option>
+                  <option value="64">1.4 E Plus </option>
+                  <option value="65"> 1.6 E Plus </option>
+                  <option value="66">1.4 S</option>
+                  <option value="67">1.6 SX Plus </option>
+                  <option value="68">1.4 S Plus </option>
+                  <option value="69 ">1.6 SX Plus Dual Tone</option>
+                  <option value="70">1.6 SX </option>
+                  <option value="71">1.6 SX Plus AT</option>
+                  <option value="72">1.6 SX Plus</option>
+                  <option value="73">1.6 S Plus AT</option>
+                  <option value="74"> 1.6 SX Plus Special Edition</option>
+                  <option value="75">1.6 SX Plus Dual Tone</option>
+                  <option value="76">1.6 SX (O)</option>
+                  <option value="77">1.6 SX Plus AT</option>
      <optgroup label="VOL-POLO GT"></optgroup>
-                <option value="GT TSI">GT TSI</option>
-                <option value="GT TDI">GT TDI</option>
+                <option value="78">GT TSI</option>
+                <option value="79">GT TDI</option>
                 
     <optgroup label="VOL-Tiguan"></optgroup>  
-                <option value="Tiguan Comfortline">Tiguan Comfortline</option>
-                <option value="Tiguan Highline">Tiguan Highline</option>
+                <option value="80">Tiguan Comfortline</option>
+                <option value="81">Tiguan Highline</option>
     <optgroup label="VOL-POLO GTI"></optgroup>            
-                <option value="GTI STD">GTI STD</option>
+                <option value="82">GTI STD</option>
     <optgroup label="BEETLE"></optgroup>     
-                <option value="1.4 TSI">1.4 TSI</option>
+                <option value="83">1.4 TSI</option>
      <optgroup label="TATA NANO"></optgroup>
-                 <option value="XE GenX">XE GenX</option>
-                  <option value="XM GenX ">XM GenX</option>
-                  <option value="XT GenX">  XT GenX</option>
-                  <option value="XM CNG">XM CNG</option>
-                  <option value="XMA GenX">XMA GenX</option>
-                  <option value="XTA GenX">XTA GenX</option>
+                 <option value="84">XE GenX</option>
+                  <option value="85 ">XM GenX</option>
+                  <option value="86">  XT GenX</option>
+                  <option value="87">XM CNG</option>
+                  <option value="88">XMA GenX</option>
+                  <option value="89">XTA GenX</option>
     <optgroup label="TATA SAFARI"></optgroup>
-                <option value="2.2 LX 4x2">2.2 LX 4x2</option>
-                <option value="2.2 EX 4x2">2.2 EX 4x2</option>
+                <option value="90">2.2 LX 4x2</option>
+                <option value="91">2.2 EX 4x2</option>
                
      <optgroup label="TATA ARIA"></optgroup>           
-             <option value="SUV, Manual, Diesel 15.1Kmpl">LX 4x2 BS4</option>
-               <option value="SUV, Manual, Diesel 15.1Kmpl">Pleasure 4x2 BS4</option>
-              <option value="SUV, Manual, Diesel 15.1Kmpl">Pride 4x4</option>
+             <option value="92">LX 4x2 BS4</option>
+               <option value="93">Pleasure 4x2 BS4</option>
+              <option value="94">Pride 4x4</option>
                   
  <optgroup label="TATA INDIGO ECS"></optgroup>  
-          <option value="eCS GLS MPFi BS4">eCS GLS MPFi BS4</option>
-         <option value="eCS LS TDI BS III"> eCS LS TDI BS III</option>
-        <option value="eCS LS">eCS LS</option>
-          <option value="eCS LX TDI BS II">eCS LX TDI BS III</option>
-         <option value="eCS LX"> eCS LX</option>
-       <option value="eCS VX">eCS VX</option>
+          <option value="95">eCS GLS MPFi BS4</option>
+         <option value="96"> eCS LS TDI BS III</option>
+        <option value="97">eCS LS</option>
+          <option value="98">eCS LX TDI BS III</option>
+         <option value="99"> eCS LX</option>
+       <option value="100">eCS VX</option>
     <optgroup label="HONDA CITY"></optgroup>  
-          <option value="S">S</option>
-         <option value="SV"> SV</option>
-            <option value="V">V</option>
-           <option value="SVI"> SVI</option>
-          <option value="V CVT"> V CVT </option>
-          <option value="V">V</option>
-         <option value="VX">VX</option>
-         <option value="VX CVT"> VX CVT</option>
-           <option value="VX">VX</option>
-          <option value="ZX CVT">ZX CVT</option>
-         <option value="ZX"> ZX</option>
+          <option value="101">S</option>
+         <option value="102"> SV</option>
+            <option value="103">V</option>
+           <option value="104"> SVI</option>
+          <option value="105"> V CVT </option>
+          <option value="106">V</option>
+         <option value="107">VX</option>
+         <option value="108"> VX CVT</option>
+           <option value="109">VX</option>
+          <option value="110">ZX CVT</option>
+         <option value="111"> ZX</option>
     <optgroup label="HONDA CR-V"></optgroup>  
-           <option value="2.0L MT">2.0L MT</option>
-           <option value="2.0L AT"> 2.0L AT</option>
-           <option value="2.4L AT"> 2.4L AT</option>
+           <option value="112">2.0L MT</option>
+           <option value="113"> 2.0L AT</option>
+           <option value="114"> 2.4L AT</option>
      <optgroup label="HONDA BRIO"></optgroup>
-          <option value="E MT">E MT</option>
-          <option value="S MT"> S MT</option>
-          <option value="VX MT"> VX MT</option>
-          <option value="VX AT"> VX AT</option>
+          <option value="115">E MT</option>
+          <option value="116"> S MT</option>
+          <option value="117"> VX MT</option>
+          <option value="118"> VX AT</option>
     <optgroup label="HONDA WR-V"></optgroup>      
-		  <option value="S MT Petrol">S MT Petrol</option>
-          <option value="S MT Diesel"> S MT Diesel</option>
-		  <option value="VX MT Petrol"> VX MT Petrol</option>
-          <option value="VX MT Diesel"> VX MT Diesel</option>
+          <option value="119">S MT Petrol</option>
+          <option value="120"> S MT Diesel</option>
+          <option value="121"> VX MT Petrol</option>
+          <option value="122"> VX MT Diesel</option>
                     </select>
                 </div>
             </div>
         
       </thead>
   </table>
- </form>
         </div>
-
-   <div class="col-md-2" class="center" style="align-content: center; padding-top:110px;">
-    <div class="col-md-12">
-        <a href="#"><button type="submit" class=" btn-lg btn-warning" value="COM">COMPARE</button></a>
-    </div>
-</div>
-
 
 
     <div class="col-md-5" class="right" style="padding-bottom: 40px">
@@ -327,13 +319,12 @@
             <div class="test-center">
                 <h3 style="color:yellow"><strong> CAR 2</strong></h3>
             </div></div>
-            <form name="COMPARE" method="POST" >
     <table  align='center'>
         <thead >
         <div class="form-group-md-5">
            <div class="ui-select">
-                    <select class="form-control" name="compage" >
-                 <option value="">Select Make</option>
+                    <select class="form-control" name="txt2" >
+                 <option  disabled selected  value="">Select Make</option>
                      <option value="Maruti Suzuki">MARUTI SUZUKI</option>
                       <option value="Hyundai" >HYUNDAI</option>
                       <option value="Volkswagen" >VOLKSWAGEN</option>
@@ -345,8 +336,8 @@
         <br>
         <div class="form-group-md-5">
                 <div class="ui-select">
-                    <select class="form-control" name="compage" >
-                 <option value="">Select Model</option>
+                    <select class="form-control" name="txtm2" >
+                 <option  disabled selected value="">Select Model</option>
           <optgroup label="Maruti Suzuki"></optgroup>
                 <option value="Ertiga">MS-ERTIGA</option>
                 <option value="Swift">MS-SWIFT</option>
@@ -378,164 +369,171 @@
         <br>
          <div class="form-group-md-5">
                 <div class="ui-select">
-                    <select class="form-control" name="compage" >
+                    <select class="form-control" name="Car2" >
                 <option value="">Select Variants</option>
-          <optgroup label="Maruti Suzuki"></optgroup>
-                 <optgroup label="MS-ERTIGA "></optgroup>
-                  <option value="LXI">LXI</option>
-                  <option value="LXI (O)">LXI (O)</option>
-                  <option value="LDI">LDI</option>
-                  <option value="LDI(O)">LDI (O)</option>
-                  <option value="VXI">VXI</option>
-                  <option value="VDI">VDI</option>
-                  <option value="VXI">VXI</option>
-                  <option value="VDI">VDI</option>
-                  <option value="ZXI">ZXI</option>
-                  <option value="VXI CNG">VXI CNG</option>
-                  <option value="ZDI">ZDI</option>
-                  <option value="VXI AT">VXI AT</option>
-                   <option value="ZDI PLUS">ZDI PLUS</option>
-                  <option value="ZXI PLUS">ZXI PLUS</option>
-                   <optgroup label="MS-SWIFT "></optgroup>
-                  <option value="LDI BS-IV">LDI BS-IV</option>
-                  <option value="LXI">LXI</option>
-                  <option value="VDI ABS">VDI ABS</option>
-                  <option value="VDI ABS BS-IV ">VDI ABS BS-IV</option>
-                  <option value="VXI">VXI</option>
-                  <option value="VXI ABS">VXI ABS</option>
-                  <option value="ZDI">ZDI</option>
-                  <option value="ZXI">ZXI</option>  
-                  <option value="LDI BS-IV">LDI BS-IV</option>
-                  <option value="LXI">LXI</option>
-                  <option value="VDI ABS">VDI ABS</option>
+       <optgroup label="Maruti Suzuki"></optgroup>
+                 <optgroup label="1 "></optgroup>
+                  <option value="2">LXI</option>
+                  <option value="3">LXI (O)</option>
+                  <option value="4">LDI</option>
+                  <option value="5">LDI (O)</option>
+                  <option value="6">VXI</option>
+                  <option value="7">VDI</option>
+                  <option value="8">VXI</option>
+                  <option value="9">VDI</option>
+                  <option value="10">ZXI</option>
+                  <option value="11 ">VXI CNG</option>
+                  <option value="12">ZDI</option>
+                  <option value="13 ">VXI AT</option>
+                   <option value=" 14">ZDI PLUS</option>
+                  <option value=" 15">ZXI PLUS</option>
+     <optgroup label="MS-SWIFT "></optgroup>
+                  <option value="16">LDI BS-IV</option>
+                  <option value="17">LXI</option>
+                  <option value="18">VDI ABS</option>
+                  <option value="19">VDI ABS BS-IV</option>
+                  <option value="20">VXI</option>
+                  <option value="21">VXI ABS</option>
+                  <option value="22">ZDI</option>
+                  <option value="23">ZXI</option>  
+                  <option value="24">LDI BS-IV</option>
+                  <option value="25">LXI</option>
+                  <option value="26">VDI ABS</option>
                   
        <optgroup label=" MS-S_CROSS "></optgroup>
-                   <option value="DDiS 200 Sigma">DDiS 200 Sigma</option>
-                  <option value="DDiS 200 Delta">DDiS 200 Delta</option>
-                  <option value="DDiS 200 Zeta">DDiS 200 Zeta</option>
-                  <option value="DDiS 200 Alpha ">DDiS 200 Alpha</option>
-                  <option value="DDiS 320 Alpha">DDiS 320 Alpha</option>
+                   <option value="27">DDiS 200 Sigma</option>
+                  <option value="28">DDiS 200 Delta</option>
+                  <option value="29">DDiS 200 Zeta</option>
+                  <option value="30 ">DDiS 200 Alpha</option>
+                  <option value="31">DDiS 320 Alpha</option>
                   
        <optgroup label=" MS-ALTO K10 "></optgroup>         
-                  <option value="LX">LX</option>
-                  <option value="LX(O)">LX(O)</option>
-                  <option value="LXI">LXI</option>
-                  <option value="LXI(O) ">LXI(O)</option>
-                  <option value="VXI">VXI</option>
-                  <option value="VXI (O)">VXI (O)</option>
-                  <option value="LXI GAS">LXI GAS</option>
-                  <option value="VXI AGS">VXI AGS</option>
-                  <option value="LXI CNG (O">LXI CNG (O)</option>
-                  <option value="VXI CNG (O)">VXI CNG (O)</option>
+                  <option value="32">LX</option>
+                  <option value="33">LX(O)</option>
+                  <option value="34">LXI</option>
+                  <option value="35 ">LXI(O)</option>
+                  <option value="36">VXI</option>
+                  <option value="37">VXI (O)</option>
+                  <option value="38">LXI GAS</option>
+                  <option value="39">VXI AGS</option>
+                  <option value="40">LXI CNG (O)</option>
+                  <option value="41">VXI CNG (O)</option>
       <optgroup label="HY-XCENT"></optgroup> 
-                  <option value="E Plus Petrol">E Plus Petrol</option>
-                  <option value="E Diesel ">E Diesel</option>
-                  <option value="S Petrol"> S Petrol</option>
-                  <option value="SX Petrol">SX Petrol</option>
-                  <option value="E Plus Diesel">E Plus Diesel</option>
-                  <option value="S AT Petrol">S AT Petrol</option>
-                  <option value="S Diesel">S Diesel</option>
-                  <option value="SX Petrol (O)">SX Petrol (O))</option>
-                  <option value="SX Diesel">SX Diesel)</option>
-                  <option value="SX Diesel (O)">SX Diesel (O)</option>
+                  <option value="42">E Plus Petrol</option>
+                  <option value="43 ">E Diesel</option>
+                  <option value="44"> S Petrol</option>
+                  <option value="45">SX Petrol</option>
+                  <option value="46">E Plus Diesel</option>
+                  <option value="47">S AT Petrol</option>
+                  <option value="48">S Diesel</option>
+                  <option value="49">SX Petrol (O))</option>
+                  <option value="50">SX Diesel)</option>
+                  <option value="51">SX Diesel (O)</option>
     <optgroup label="HY-I10"></optgroup> 
-                  <option value="1.1 Era">1.1 Era</option>
-                  <option value="1.1 Magna ">1.1 Magna</option>
-                  <option value="1.1 Magna Special Edition"> 1.1 Magna Special Edition</option>
-                  <option value="1.1 Sportz MT">1.1 Sportz MT</option>
-                  <option value="1.1 Sportz MT LPG">1.1 Sportz MT LPG</option>
+                  <option value="52">1.1 Era</option>
+                  <option value="53">1.1 Magna</option>
+                  <option value="54"> 1.1 Magna Special Edition</option>
+                  <option value="55">1.1 Sportz MT</option>
+                  <option value="56">1.1 Sportz MT LPG</option>
     <optgroup label="HY-I20"></optgroup> 
-                  <option value="1.2 Base">1.2 Base</option>
-                  <option value="1.2 S">1.2 S</option>
-                  <option value="1.4 Base"> 1.4 Base</option>
-                  <option value="1.2 SX AVN">1.2 SX AVN</option>
-                  <option value="1.4 S">1.4 S</option>
-                  <option value="1.4 SX AVN">1.4 SX AVN</option>
+                  <option value="57">1.2 Base</option>
+                  <option value="58">1.2 S</option>
+                  <option value="59"> 1.4 Base</option>
+                  <option value="60">1.2 SX AVN</option>
+                  <option value="61">1.4 S</option>
+                  <option value="62">1.4 SX AVN</option>
     <optgroup label="HY-CRETA"></optgroup> 
-                  <option value="1.6 E Petrol">1.6 E Petrol</option>
-                  <option value="1.4 E Plus">1.4 E Plus </option>
-                  <option value="1.6 E Plus"> 1.6 E Plus </option>
-                  <option value="1.4 S">1.4 S</option>
-                  <option value="1.6 SX Plus">1.6 SX Plus </option>
-                  <option value="1.4 S Plus">1.4 S Plus </option>
-                  <option value="1.6 SX Plus Dual Tone ">1.6 SX Plus Dual Tone</option>
-                  <option value="1.6 SX">1.6 SX </option>
-                  <option value="1.6 SX Plus AT">1.6 SX Plus AT</option>
-                  <option value="1.6 SX Plus">1.6 SX Plus</option>
-                  <option value="1.6 S Plus AT">1.6 S Plus AT</option>
-                  <option value="1.6 SX Plus Special Edition"> 1.6 SX Plus Special Edition</option>
-                  <option value="1.6 SX Plus Dual Tone">1.6 SX Plus Dual Tone</option>
-                  <option value="1.6 SX (O)">1.6 SX (O)</option>
-                  <option value="1.6 SX Plus AT">1.6 SX Plus AT</option>
+                  <option value="63">1.6 E Petrol</option>
+                  <option value="64">1.4 E Plus </option>
+                  <option value="65"> 1.6 E Plus </option>
+                  <option value="66">1.4 S</option>
+                  <option value="67">1.6 SX Plus </option>
+                  <option value="68">1.4 S Plus </option>
+                  <option value="69 ">1.6 SX Plus Dual Tone</option>
+                  <option value="70">1.6 SX </option>
+                  <option value="71">1.6 SX Plus AT</option>
+                  <option value="72">1.6 SX Plus</option>
+                  <option value="73">1.6 S Plus AT</option>
+                  <option value="74"> 1.6 SX Plus Special Edition</option>
+                  <option value="75">1.6 SX Plus Dual Tone</option>
+                  <option value="76">1.6 SX (O)</option>
+                  <option value="77">1.6 SX Plus AT</option>
      <optgroup label="VOL-POLO GT"></optgroup>
-                <option value="GT TSI">GT TSI</option>
-                <option value="GT TDI">GT TDI</option>
+                <option value="78">GT TSI</option>
+                <option value="79">GT TDI</option>
                 
     <optgroup label="VOL-Tiguan"></optgroup>  
-                <option value="Tiguan Comfortline">Tiguan Comfortline</option>
-                <option value="Tiguan Highline">Tiguan Highline</option>
+                <option value="80">Tiguan Comfortline</option>
+                <option value="81">Tiguan Highline</option>
     <optgroup label="VOL-POLO GTI"></optgroup>            
-                <option value="GTI STD">GTI STD</option>
+                <option value="82">GTI STD</option>
     <optgroup label="BEETLE"></optgroup>     
-                <option value="1.4 TSI">1.4 TSI</option>
+                <option value="83">1.4 TSI</option>
      <optgroup label="TATA NANO"></optgroup>
-                 <option value="XE GenX">XE GenX</option>
-                  <option value="XM GenX ">XM GenX</option>
-                  <option value="XT GenX">  XT GenX</option>
-                  <option value="XM CNG">XM CNG</option>
-                  <option value="XMA GenX">XMA GenX</option>
-                  <option value="XTA GenX">XTA GenX</option>
+                 <option value="84">XE GenX</option>
+                  <option value="85 ">XM GenX</option>
+                  <option value="86">  XT GenX</option>
+                  <option value="87">XM CNG</option>
+                  <option value="88">XMA GenX</option>
+                  <option value="89">XTA GenX</option>
     <optgroup label="TATA SAFARI"></optgroup>
-                <option value="2.2 LX 4x2">2.2 LX 4x2</option>
-                <option value="2.2 EX 4x2">2.2 EX 4x2</option>
+                <option value="90">2.2 LX 4x2</option>
+                <option value="91">2.2 EX 4x2</option>
                
      <optgroup label="TATA ARIA"></optgroup>           
-             <option value="SUV, Manual, Diesel 15.1Kmpl">LX 4x2 BS4</option>
-               <option value="SUV, Manual, Diesel 15.1Kmpl">Pleasure 4x2 BS4</option>
-              <option value="SUV, Manual, Diesel 15.1Kmpl">Pride 4x4</option>
+             <option value="92">LX 4x2 BS4</option>
+               <option value="93">Pleasure 4x2 BS4</option>
+              <option value="94">Pride 4x4</option>
                   
  <optgroup label="TATA INDIGO ECS"></optgroup>  
-          <option value="eCS GLS MPFi BS4">eCS GLS MPFi BS4</option>
-         <option value="eCS LS TDI BS III"> eCS LS TDI BS III</option>
-        <option value="eCS LS">eCS LS</option>
-          <option value="eCS LX TDI BS II">eCS LX TDI BS III</option>
-         <option value="eCS LX"> eCS LX</option>
-       <option value="eCS VX">eCS VX</option>
+          <option value="95">eCS GLS MPFi BS4</option>
+         <option value="96"> eCS LS TDI BS III</option>
+        <option value="97">eCS LS</option>
+          <option value="98">eCS LX TDI BS III</option>
+         <option value="99"> eCS LX</option>
+       <option value="100">eCS VX</option>
     <optgroup label="HONDA CITY"></optgroup>  
-          <option value="S">S</option>
-         <option value="SV"> SV</option>
-            <option value="V">V</option>
-           <option value="SVI"> SVI</option>
-          <option value="V CVT"> V CVT </option>
-          <option value="V">V</option>
-         <option value="VX">VX</option>
-         <option value="VX CVT"> VX CVT</option>
-           <option value="VX">VX</option>
-          <option value="ZX CVT">ZX CVT</option>
-         <option value="ZX"> ZX</option>
+          <option value="101">S</option>
+         <option value="102"> SV</option>
+            <option value="103">V</option>
+           <option value="104"> SVI</option>
+          <option value="105"> V CVT </option>
+          <option value="106">V</option>
+         <option value="107">VX</option>
+         <option value="108"> VX CVT</option>
+           <option value="109">VX</option>
+          <option value="110">ZX CVT</option>
+         <option value="111"> ZX</option>
     <optgroup label="HONDA CR-V"></optgroup>  
-           <option value="2.0L MT">2.0L MT</option>
-           <option value="2.0L AT"> 2.0L AT</option>
-           <option value="2.4L AT"> 2.4L AT</option>
+           <option value="112">2.0L MT</option>
+           <option value="113"> 2.0L AT</option>
+           <option value="114"> 2.4L AT</option>
      <optgroup label="HONDA BRIO"></optgroup>
-          <option value="E MT">E MT</option>
-          <option value="S MT"> S MT</option>
-          <option value="VX MT"> VX MT</option>
-          <option value="VX AT"> VX AT</option>
+          <option value="115">E MT</option>
+          <option value="116"> S MT</option>
+          <option value="117"> VX MT</option>
+          <option value="118"> VX AT</option>
     <optgroup label="HONDA WR-V"></optgroup>      
-		  <option value="S MT Petrol">S MT Petrol</option>
-          <option value="S MT Diesel"> S MT Diesel</option>
-		  <option value="VX MT Petrol"> VX MT Petrol</option>
-          <option value="VX MT Diesel"> VX MT Diesel</option>
+          <option value="119">S MT Petrol</option>
+          <option value="120"> S MT Diesel</option>
+          <option value="121"> VX MT Petrol</option>
+          <option value="122"> VX MT Diesel</option>
                     </select>
                 </div>
             </div>
         
       </thead>
   </table>
- </form>
         </div>
     
+
+   <div class="col-md-2" class="center" style="align-content: center; padding-top:110px;">
+    <div class="col-md-12">
+       <button type="submit" class=" btn-lg btn-warning" value="COM">COMPARE</button>
+    </div>
+</div>
+
+ </form>
     
 <!--    <div class="col-md-12"  align="center" style="padding-left:30px; padding-bottom: 20px;padding-top: 25px" >
         <button type="submit" class=" btn-lg btn-primary" value="COM">SHOW CAR DETAILS</button>

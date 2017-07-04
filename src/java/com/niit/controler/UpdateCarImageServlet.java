@@ -57,7 +57,9 @@ public class UpdateCarImageServlet extends HttpServlet {
                         if (!item.isFormField()) {
 
                            name = new File(item.getName()).getName();
-                            String uploadPath = getServletContext().getRealPath("/")+  UPLOAD_DIRECTORY;
+                           String basePath = getServletContext().getRealPath("/");
+                           String uploadPath = basePath.substring(0,basePath.indexOf("build")) + "/web/" +  UPLOAD_DIRECTORY;
+                           // String uploadPath = UPLOAD_DIRECTORY;
                             System.out.println("name : " + uploadPath + File.separator + name);
                             item.write(new File(uploadPath + File.separator + request.getParameter("carId")+".jpg"));
                             

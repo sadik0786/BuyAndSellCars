@@ -21,7 +21,7 @@
     </head>
     <body>
        <div id="header">
-  <img id="logo" src="images/carlogo.png" class="img-responsive">
+  <img id="logo" src="images/logo2.png" class="img-responsive">
 <form id="search">
     <input type="text" name="search" class="img-rounded " placeholder="Search..">
     <input type="button" class="img-circle" value="Search">
@@ -50,19 +50,26 @@
               <a href="#" class="dropdown-toggle" class="btn btn-lg" data-toggle="dropdown" role="button" aria-haspopup="true"
                  aria-expanded="false"> UPDATE <span class="caret"></span></a>
               <ul class="dropdown-menu">
-                <li><a target="ContentFrame" href="AddCar.jsp">Add Car</a></li>
+                <li><a target="ContentFrame" href="AddCar.jsp">Add New Car</a></li>
                 <li><a target="ContentFrame" href="ModifyPage.jsp">Update Car</a></li>
-                <li><a target="ContentFrame" href="AddNewCar.jsp">Add New Cars</a></li>
-                <li><a target="ContentFrame" href="CancleOrder.jsp">Cancel Order</a></li>  
+                <li><a target="ContentFrame" href="OrderStatus.jsp">Order Status</a></li>
+                <li><a target="ContentFrame" href="OrderModifyPage.jsp">Cancel Order</a></li>  
               </ul> </li>
         </ul>
-          <ul class="nav navbar-nav navbar-right">
+               <ul  class="nav navbar-nav navbar-right">
+              <c:if test="${not empty loginId}">
+                  <li><a href="EditProfile.jsp"><p style="color:pink; font-size:20px">Hello ${loginId}</p></a></li>
+              </c:if>
+           <li><a target="_blank" href="Javascript:if(confirm('Do you want to logout?'))
+	{document.location='?logout=now';}Logout.do" class="btn btn-lg" >Log Out</a></li>
+          </ul>
+<!--          <ul class="nav navbar-nav navbar-right">
                <li><a target="ContentFrame" href="Javascript:if(confirm('Do you want to logout?'))
 	{document.location='?logout=now';}Logout.do">LOG OUT</a></li>
           </ul>
   <ul class="nav navbar-nav navbar-right">
   <li><a target="ContentFrame" class="btn btn-lg" href=".jsp"></a></li>
-          </ul>
+          </ul>-->
       </div>
     </div><!--/.container-fluid -->
   </nav>

@@ -48,20 +48,28 @@ public class UserDAOImp implements UserDAO{
     }
 
     @Override
-    public UserInfo getUserById(int userId) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public String[] getUserById(String userId) {
+        String s[]=new String[6];
+        ResultSet rs=null;
+        System.out.println("user id to retrive is "+userId);
+        try {
+            rs = con.prepareStatement("SELECT LOGINID,FNAME,LNAME,MOBILENO,EMAIL,ADDRESS FROM SADIK.USERINFO where loginid = '"+userId+"'").executeQuery();
+            rs.next();
+            System.out.println("Reteiived userID is "+rs.getString(1));
+            for (int i = 0; i < 6; i++) {
+                s[i]=rs.getString(i+1);
+            }
+        } catch (SQLException ex) {
+            System.out.println("Exception hua");
+            System.out.println(ex.getMessage());
+        }
+        return s;
     }
 
-
-    @Override
-    public boolean deleteUser(int userId) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
 
     @Override
     public UserInfo getUserByLoginId(String loginId) {
-    //    throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-     ResultSet rs=null;
+        ResultSet rs=null;
         System.out.println(loginId);
         try {
             rs = con.prepareStatement("select * from userinfo where loginid = '"+ loginId +"'").executeQuery();
@@ -89,8 +97,7 @@ public class UserDAOImp implements UserDAO{
         boolean f=false;
         try{
             
-            PreparedStatement ps=con.prepareStatement("UPDATE SADIK.USERINFO SET PASSWORD = ? WHERE EMAIL = ?" +
-"");
+              PreparedStatement ps=con.prepareStatement("UPDATE SADIK.USERINFO SET PASSWORD = ? WHERE EMAIL = ?" + "");
             ps.setString(1, password.trim());
             ps.setString(2, email.trim());
             int a = ps.executeUpdate();
@@ -103,8 +110,72 @@ public class UserDAOImp implements UserDAO{
         }
         return f;
     }
-    
+
+    @Override
+    public boolean updateUser(String lid, String fname, String lname, String mobile, String email, String addr) {
+        boolean f=false;
+        try{
+            System.out.println(fname+" "+lid+" "+lname);
+            PreparedStatement ps=con.prepareStatement("UPDATE SADIK.USERINFO SET  FNAME = ?, LNAME = ?,MOBILEno = ?,EMAIL = ?,ADDRESS = ? WHERE LOGINID = '" +lid+ "'");
+            ps.setString(1, fname.trim());
+            ps.setString(2, lname.trim());
+            ps.setString(3, mobile.trim());
+            ps.setString(4, email.trim());
+            ps.setString(5, addr.trim());
+            int a = ps.executeUpdate();
+            System.out.println("no of row effected = "+a);
+            f=true;
+        }
+        catch(Exception e){
+            System.out.println("Exceptionname "+e);
+            System.out.println(e.getMessage());
+        }
+        return f;
     }
+
+    @Override
+    public boolean cancel(String orderId) {
+       try {
+            PreparedStatement ps=con.prepareStatement("update orderdetails set status='Cancle' where orderid = " + orderId);
+            if(ps.executeUpdate()!=0)
+            {
+                System.out.println("Order Cancelled");
+                
+                return true;
+            }
+            else{
+                System.out.println("else of cancle condition");
+                return false;
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(OrderDAOImp.class.getName()).log(Level.SEVERE, null, ex);
+        }
+       return false;
+    }
+
+    @Override
+    public boolean accept(String orderId) {
+    
+       try {
+            PreparedStatement ps=con.prepareStatement("update orderdetails set status='Accepted' where orderid = " + orderId);
+            if(ps.executeUpdate()!=0)
+            {
+                System.out.println("Order Accepted");
+                
+                return true;
+            }
+            else{
+                System.out.println("Error while accepting");
+                return false;
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(OrderDAOImp.class.getName()).log(Level.SEVERE, null, ex);
+        }
+       return false;
+    }
+    }
+
+   
     
     
 

@@ -13,10 +13,11 @@ import com.niit.model.UserInfo;
  */
 public interface UserDAO {
     boolean createUser(UserInfo u);
-    UserInfo getUserById(int userId);
+    String[] getUserById(String userId);
     boolean updateUser(String email,String password);
-    boolean deleteUser(int userId);
     UserInfo getUserByLoginId(String loginId);
-  
+    boolean updateUser(String lid,String fname,String lname,String mobile,String email,String addr);
+    boolean cancel(String orderId);
+    boolean accept(String orderId);
    
 }

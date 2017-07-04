@@ -5,25 +5,19 @@
  */
 package com.niit.controler;
 
-import com.niit.model.OrderInfo;
-import com.pro.dao.OrderDAOImp;
-import com.pro.dao.UserDAOImp;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.sql.Date;
-import java.util.Calendar;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 /**
  *
  * @author Sadik
  */
-public class AdOrderServlet extends HttpServlet {
+public class Compare extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -39,39 +33,41 @@ public class AdOrderServlet extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
-         //   int orderId =Integer.parseInt(request.getParameter("orderId"));
-            Date OrderDate = new Date(Calendar.getInstance().getTime().getTime());
-           
-             int carId =Integer.parseInt(request.getParameter("carId"));
-             String Status = "Pending";
-             HttpSession session = request.getSession(false);
-             Object loginId= session.getAttribute("loginId");
-             if(loginId!=null)
-             {
+            String make1=request.getParameter("txt1");
+            String make2=request.getParameter("txt2");
+            String model1=request.getParameter("txtm1");
+            String model2=request.getParameter("txtm2");
+//            int c1 = Integer.parseInt("Car1");
+//            int c2 = Integer.parseInt("Car2");
+            String c1=request.getParameter("Car1");
+            String c2=request.getParameter("Car2");
+            
+            int car1 = Integer.parseInt(c1.trim());
+            int car2 = Integer.parseInt(c2.trim());
+            
+            System.out.println(make1+" "+make2+" "+model1+" "+model2+" "+c1+" "+c2);
+            System.out.println(car1+" "+car2);
+            if (car1<car2) {
+                System.out.println("car2 is better");
                 
-                int userId=new UserDAOImp().getUserByLoginId(loginId.toString()).getUserId();  
-                System.out.println("OrderDate "+OrderDate+" carId "+carId+" userId "+userId+ " Status " +Status );
-                OrderDAOImp DAOImp =new OrderDAOImp();
-                OrderInfo order = new OrderInfo( carId, userId,OrderDate,Status );
-                int orderId=DAOImp.addOrder(order) ; 
-                //alert sms
-                
-                 if(orderId!=0){
-                    System.out.println("Order Booked");
-                    request.setAttribute("orderId",orderId );
-                    new Thread(new TimerClass(System.currentTimeMillis(),orderId)).start();
-                    RequestDispatcher rd = request.getRequestDispatcher("OrderDetails.jsp");
-                    rd.forward(request, response);
-                }
-                else
-                {
-                    System.out.println("Failed to Order Car !");
-                    out.println("Failed to Order Car ");
-                }
-             }
-             else
-             {
-                 response.sendRedirect("LoginPage.jsp");
+                        RequestDispatcher rd = request.getRequestDispatcher("CampareDone.jsp");
+                        request.setAttribute("m1", make1);
+                        request.setAttribute("m2", make2);
+                        request.setAttribute("md1", model1);
+                        request.setAttribute("md2", model2);
+                        request.setAttribute("c1", "2");
+                        rd.forward(request, response);
+            }
+            else
+            {
+                System.out.println("car1 is btter");
+                        RequestDispatcher rd = request.getRequestDispatcher("CampareDone.jsp");
+                        request.setAttribute("m1", make1);
+                        request.setAttribute("m2", make2);
+                        request.setAttribute("md1", model1);
+                        request.setAttribute("md2", model2);
+                        request.setAttribute("c1", "1");
+                        rd.forward(request, response);
             }
         }
     }

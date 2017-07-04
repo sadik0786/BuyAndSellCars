@@ -15,10 +15,10 @@ import java.util.List;
  */
 public interface OrderDAO {
     int addOrder(OrderInfo orderinfo);
-    boolean confirmOrder(CarInfo carinfo);
+    boolean confirmOrder(int carId);
     OrderInfo getorderById(int orderId);
-   // boolean updateOrder(int orderId,CarInfo car);
     boolean cancleOrder(int orderId);
      List<OrderInfo> getAllOrders();
+     boolean TimeOut(int orderId);
     
 }

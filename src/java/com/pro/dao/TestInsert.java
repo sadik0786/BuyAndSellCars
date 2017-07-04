@@ -11,8 +11,11 @@ package com.pro.dao;
  */
 public class TestInsert {
 //    public static void main(String[] args) {
-//        DAOImp o =new DAOImp();
-//        UserInfo u= new UserInfo("fff", "lll", "mail", "pass", "m", "1234567890", "mum", "addr", "400097", "admin");
-//        o.createUser(u);
+//        UserDAO d = new UserDAOImp();
+//        String s[]= d.getUserById("sadik.ali");
+//        for (int i = 0; i < 6; i++) {
+//            System.out.println(s[i]);
+//        }
+//    }
 //    }
 }

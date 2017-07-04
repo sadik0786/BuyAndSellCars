@@ -3,6 +3,17 @@
     Created on : 22 Jun, 2017, 4:11:12 PM
     Author     : Sadik
 --%>
+<%@page import="com.pro.dao.OrderDAOImp"%>
+<%@page import="com.niit.model.OrderInfo"%>
+<%@page import="com.pro.dao.OrderDAO"%>
+<%@page import="com.pro.dao.UserDAO"%>
+<%@page import="com.pro.dao.UserDAOImp"%>
+<%@page import="com.niit.model.UserInfo"%>
+<%@page import="java.util.Iterator"%>
+<%@page import="com.pro.dao.CarDAO"%>
+<%@page import="java.util.List"%>
+<%@page import="com.niit.model.CarInfo"%>
+<%@page import="com.pro.dao.CarDAOImp"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
@@ -65,54 +76,87 @@
        <div id="con" class="container">
        
        <h3>Customer Information:</h3>
-       
+       <% 
+       UserDAO userDAO = new UserDAOImp();
+       UserInfo userInfo = userDAO.getUserByLoginId(request.getSession().getAttribute("loginId").toString());
+       %>
        <ul id="ul_1">
-           <li>Name: ${userInfo.getFname()}</li>
-           <li>Email: ${userInfo.getEmail()}</li>
-           <li>Phone: ${userInfo.getMob()}</li>
-           <li>Address: ${userInfo.getAdd()}</li>
+          
+       <li>Name : <%=userInfo.getFname()%> </li>
+       <li>Email : <%=userInfo.getEmail()%> </li>
+       <li>Mobile :<%=userInfo.getMob()%> </li>
+       <li>Address :<%=userInfo.getAdd()%> </li>
        </ul>
-       
-       <h3>Order Summary:</h3>
-       
-                <ul>
-           <li>Total:
-           <span class="total">
-      <fmt:formatNumber value="${carDetails.price}" type="currency"/>
-            </span></li></ul>           
-   <br>
-   
-   <table border="01" width="500" hieght="75" >
-        <tr>
-           <th>&nbsp;&nbsp; Car Id :-</th>
-           <td>${carInfo.CarId}</td>
-       </tr>
-       
-          <tr>
-           <th>&nbsp;&nbsp; Car Model :-</th>
-           <td>${carInfo.carModel}</td>
-          </tr>
-               <tr>
-           <th>&nbsp;&nbsp; Order Date :-</th>
-           <td>${orderInfo.OrderDate}</td>
-              </tr>
-                  <tr>
-           <th>&nbsp;&nbsp; Price :-</th>
-           <td> <fmt:formatNumber value="${carDetails.price}" type="currency"/>
-               </td></tr>
-            <tr>
-           <th>&nbsp;&nbsp; Confirm Order :-</th>
-           <td> <a href="" class="btn btn-link" >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Confirm &nbsp;</a>
-               </td> </tr>
 
-              <tr> <th>&nbsp;&nbsp; Cancel Order :-</th>
-           <td>
-               <a href="" class="btn btn-link">&nbsp;&nbsp;&nbsp;&nbsp; Cancel&nbsp; &nbsp;</a>
-               </td> </tr>
-       
-   </table>
-               
-    </div>
+       </div>
+       <table border="2px" align="center" width="85%" >
+            <thead>
+                <th>Car_id</th>
+                <th> Car Make</th>
+                <th> Car Model</th>
+                <th> Variant</th>
+                <th> Mfg_Year</th>
+                <th> CarFuel</th>
+                <th> Owners</th>
+                <th> Price</th>
+                <th> Kms</th>
+                <th> Mileage</th>
+                <th> Branch</th>
+                <th> Car_Img</th>
+                
+                <th></th>
+         </thead>
+           <%
+                CarDAO carDAO = new CarDAOImp();
+                List<CarInfo> CarInfoList = carDAO.getAllCars();
+                Iterator CarInfoItr = CarInfoList.iterator();
+                while(CarInfoItr.hasNext())
+                {
+                    CarInfo carInfo = (CarInfo)CarInfoItr.next();
+                %>   
+                <tr>
+               <td><%=carInfo.getCarId() %> </td>
+                <td><%=carInfo.getCarMake() %> </td>
+                <td><%=carInfo.getCarModel() %> </td>
+                <td><%=carInfo.getVariant() %> </td>
+                <td><%=carInfo.getMfgYear() %> </td>
+                <td><%=carInfo.getCarFuel() %> </td>
+                <td><%=carInfo.getOwners() %> </td>
+                <td><%=carInfo.getPrice() %> </td>
+                <td><%=carInfo.getKms() %> </td>
+                 <td><%=carInfo.getMileage() %> </td>
+                 <td><%=carInfo.getBranch()%> </td>
+                  
+                <td><img width='160' height='120' src='images/car_images/<%=carInfo.getCarId()%>.jpg'/> </td>
+                <% System.out.println(carInfo.getCarId());%>
+                <td>
+                    <form method="post" action="ConfirmOD">
+                        <input type="text" hidden="true"name="txtcmd" value="del">
+                        <input type="text" hidden="true"name="txtid" value="<%=carInfo.getCarId()%>">
+                        <button type="submit" class="btn btn-link">Cancel</button>
+                    </form>
+                 
+                    <form method="post" action="ConfirmOD">
+                        <input type="text" hidden="true"name="txtcmd" value="conf">
+                        <input type="text" hidden="true"name="txtid" value="<%=carInfo.getCarId()%>">
+                        <button type="submit" class="btn btn-link">Confirm</button>
+                    </form>
+                </td>
+            </tr>
+            <% } %>
+        </table>
+        <div id="con" class="container">
+       <h3>Order Summary:</h3>
+      
+                <ul>
+           <li>Order_Date: ${userInfo.getdate()}</li>
+           <li>Total Order: ${userInfo.gettotale()}</li>      
+       </ul>           
+   <br>
+  </div>
+           
+           
+   
       
 
     </body>

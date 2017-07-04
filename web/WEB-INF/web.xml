@@ -40,6 +40,26 @@
         <servlet-name>ChangePasswordServlet</servlet-name>
         <servlet-class>com.niit.controler.ChangePassword</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>Edit</servlet-name>
+        <servlet-class>com.niit.controler.EditProfile</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ConfirmOrderServlet</servlet-name>
+        <servlet-class>com.niit.controler.ConfirmOrderServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ConfirmOD</servlet-name>
+        <servlet-class>com.niit.controler.ConfirmOD</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>MgConfirm</servlet-name>
+        <servlet-class>com.niit.controler.MgConfirm</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>Compare</servlet-name>
+        <servlet-class>com.niit.controler.Compare</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>CreateId</servlet-name>
         <url-pattern>/create.do</url-pattern>
@@ -79,6 +99,26 @@
     <servlet-mapping>
         <servlet-name>AddOrderServlet</servlet-name>
         <url-pattern>/AddOrder.do</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Edit</servlet-name>
+        <url-pattern>/edit.do</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ConfirmOrderServlet</servlet-name>
+        <url-pattern>/confirmorder.do</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ConfirmOD</servlet-name>
+        <url-pattern>/ConfirmOD</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>MgConfirm</servlet-name>
+        <url-pattern>/mg.do</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Compare</servlet-name>
+        <url-pattern>/comp.do</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

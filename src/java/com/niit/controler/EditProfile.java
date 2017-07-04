@@ -5,25 +5,20 @@
  */
 package com.niit.controler;
 
-import com.niit.model.OrderInfo;
-import com.pro.dao.OrderDAOImp;
-import com.pro.dao.UserDAOImp;
+import com.pro.dao.*;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.sql.Date;
-import java.util.Calendar;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 /**
  *
  * @author Sadik
  */
-public class AdOrderServlet extends HttpServlet {
+public class EditProfile extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -38,41 +33,22 @@ public class AdOrderServlet extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
-            /* TODO output your page here. You may use following sample code. */
-         //   int orderId =Integer.parseInt(request.getParameter("orderId"));
-            Date OrderDate = new Date(Calendar.getInstance().getTime().getTime());
-           
-             int carId =Integer.parseInt(request.getParameter("carId"));
-             String Status = "Pending";
-             HttpSession session = request.getSession(false);
-             Object loginId= session.getAttribute("loginId");
-             if(loginId!=null)
-             {
-                
-                int userId=new UserDAOImp().getUserByLoginId(loginId.toString()).getUserId();  
-                System.out.println("OrderDate "+OrderDate+" carId "+carId+" userId "+userId+ " Status " +Status );
-                OrderDAOImp DAOImp =new OrderDAOImp();
-                OrderInfo order = new OrderInfo( carId, userId,OrderDate,Status );
-                int orderId=DAOImp.addOrder(order) ; 
-                //alert sms
-                
-                 if(orderId!=0){
-                    System.out.println("Order Booked");
-                    request.setAttribute("orderId",orderId );
-                    new Thread(new TimerClass(System.currentTimeMillis(),orderId)).start();
-                    RequestDispatcher rd = request.getRequestDispatcher("OrderDetails.jsp");
+        String loginid=request.getParameter("txtid");
+        String fname=request.getParameter("fname");
+        String lname=request.getParameter("lname");
+        String mobile=request.getParameter("mob");
+        String email=request.getParameter("email");
+        String addr=request.getParameter("address");
+            System.out.println("value for updates ");
+            System.out.println(loginid+" "+fname+" "+lname+" "+mobile+" "+email+" "+addr);
+                UserDAO d = new UserDAOImp();
+                if (d.updateUser(loginid, fname, lname, mobile, email, addr)) {
+                    RequestDispatcher rd = request.getRequestDispatcher("UserPage.jsp");
                     rd.forward(request, response);
                 }
-                else
-                {
-                    System.out.println("Failed to Order Car !");
-                    out.println("Failed to Order Car ");
+                else{
+                    System.out.println("fail to update");
                 }
-             }
-             else
-             {
-                 response.sendRedirect("LoginPage.jsp");
-            }
         }
     }
 

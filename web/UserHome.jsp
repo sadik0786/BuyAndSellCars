@@ -30,7 +30,7 @@
 </head>
 <body>
     <div id="header">
-      <img id="logo" src="images/carlogo.png" class="img-responsive">
+      <img id="logo" src="images/logo2.png" class="img-responsive">
      <form id="search">
         
     <input type="text" name="search" class="img-responsive " placeholder="Type....." >
@@ -61,17 +61,17 @@
               <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
                  aria-expanded="false"> MY PROFILE <span class="caret"></span></a>
                  <ul id="panel" class="dropdown-menu">
-                     <li><a target="ContentFrame" href="EditProfile.jsp" class="btn btn-warning" >My Profile</a></li>
+                     <li><a target="ContentFrame" href="EditProfile.jsp?txtlid=${loginId}" class="btn btn-warning" >My Profile</a></li>
                      <li><a target="ContentFrame" href="ChangePass.jsp" class="btn btn-success" >Change Password</a></li>
-                     <li><a target="_blank" href="Logout.do" class="btn btn-danger" >Log Out</a></li>
-                 </ul>
-          </li>
+                     <li><a target="_parent" href="Logout.do" class="btn btn-danger" >Log Out</a></li>
+                 </ul> </li>
         </ul>
           <ul  class="nav navbar-nav navbar-right">
               <c:if test="${not empty loginId}">
-                  <li><a href="EditProfile.jsp"><p style="color:yellow; font-size:20px">Welcome ${loginId}</p></a></li>
+                  <li><a href="EditProfile.jsp?txtlid=${loginId}" target="ContentFrame"><p style="color:yellow; font-size:20px">Welcome ${loginId}</p></a></li>
               </c:if>
-           <li><a target="_blank" href="Logout.do" class="btn btn-lg" >Log Out</a></li>
+           <li><a target="_blank" href="Javascript:if(confirm('Do you want to logout?'))
+	{document.location='?logout=now';}Logout.do" class="btn btn-lg" >Log Out</a></li>
           </ul>
  <!-- <ul class="nav navbar-nav navbar-right">
   <li><a target="_blank" class="btn btn-lg" href="Javascript:if(confirm('Do you want to logout?'))

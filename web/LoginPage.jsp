@@ -15,7 +15,7 @@
     <div>
         <center><img src="images/img_avatar2.png" class="img-responsive" alt="this is img"></center>
     </div>
-    <form class="login" method="post" target="_blank" action="Login.do">
+    <form class="login" method="post" target="_parent" action="Login.do">
  <div  style="text-align:center;margin:auto;color:pink;font-size:40px;font-weight:bold">
 Please Sign In
 </div>

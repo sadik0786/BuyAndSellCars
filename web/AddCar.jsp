@@ -252,9 +252,8 @@
                            <div class="ui-select">
                                <select id="car_owner" name="owners" class="form-control">
                                         <option value="" >Car Owner</option>
-                                        <option value="1" >Company</option>
-                                        <option value="2" >2</option>
-                                        <option value="3">3 or More</option>
+                                        <option value="company" >Company</option>
+                                      
                                </select></div>
                             </div>
                         </div>  

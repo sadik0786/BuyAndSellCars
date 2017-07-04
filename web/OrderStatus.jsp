@@ -1,5 +1,5 @@
 <%-- 
-    Document   : OrderModifyPage
+    Document   : OrderStatusPage
     Created on : 22 Jun, 2017, 3:01:38 PM
     Author     : Sadik
 --%>
@@ -15,11 +15,11 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Order Page</title>
+        <title>Order Status Page</title>
     </head>
     <body>
-        <h1>Hello manager<br> welcome to order modifying page</h1>
-        <table border="2px" width="50%" >
+        <h1  >Hello manager<br> welcome to order status page</h1>
+        <table border="4px" width="100%" >
             <thead>
             
                 <th>order ID</th>
@@ -27,8 +27,6 @@
                 <th>User Id</th>
                 <th>order Date</th>
                 <th>Status</th>
-           
-                <th></th>
          </thead>
            <%
                 OrderDAO orderDAO = new OrderDAOImp();
@@ -37,7 +35,7 @@
                 while(OrderInfoItr.hasNext())
                 {
                OrderInfo orderInfo = (OrderInfo)OrderInfoItr.next();
-               if (orderInfo.getStatus().equals("Confirm")) {
+               {
 
                 %>   
                 <tr>
@@ -48,21 +46,7 @@
                      <td><%=orderInfo.getStatus()%> </td>
                      
                   <% System.out.println(orderInfo.getOrderId());%>
-                 <td>
-                <form method="post" action="mg.do">
-                        <input type="text" hidden="true"name="txtcmd" value="cancle">
-                        <input type="text" hidden="true"name="txtid" value="<%=orderInfo.getOrderId()%>">
-                        <button type="submit" class="btn btn-link">Cancel</button>
-                    </form>
-                 <form method="post" action="mg.do">
-                        <input type="text" hidden="true"name="txtcmd" value="accept">
-                        <input type="text" hidden="true"name="txtid" value="<%=orderInfo.getOrderId()%>">
-                        <button type="submit" class="btn btn-link">Confirm</button>
-                    </form>
                 
-               
-                
-                </td>
             </tr>
        <%} }%>
     </table>

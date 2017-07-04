@@ -5,7 +5,6 @@
  */
 package com.niit.controler;
 
-import com.niit.model.UserInfo;
 import com.pro.dao.UserDAO;
 import com.pro.dao.UserDAOImp;
 import java.io.IOException;

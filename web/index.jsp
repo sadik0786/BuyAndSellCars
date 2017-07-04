@@ -81,7 +81,7 @@
               </ul> </li>-->
         </ul>
   <ul class="nav navbar-nav navbar-right">
-      <li><a target="ContentFrame" class="btn btn-lg" href="LoginPage.jsp">LOG IN</a></li>
+      <li><a target="ContentFrame"  class="btn btn-lg" href="LoginPage.jsp">LOG IN</a></li>
   <li><a target="ContentFrame" class="btn btn-lg" href="SignUpPage.jsp">SIGN UP</a></li>
           </ul>
       </div>

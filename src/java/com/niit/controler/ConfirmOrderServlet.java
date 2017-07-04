@@ -5,25 +5,22 @@
  */
 package com.niit.controler;
 
-import com.niit.model.OrderInfo;
+import com.niit.model.CarInfo;
+import com.pro.dao.CarDAOImp;
 import com.pro.dao.OrderDAOImp;
-import com.pro.dao.UserDAOImp;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.sql.Date;
-import java.util.Calendar;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 /**
  *
  * @author Sadik
  */
-public class AdOrderServlet extends HttpServlet {
+public class ConfirmOrderServlet extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -38,42 +35,35 @@ public class AdOrderServlet extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
-            /* TODO output your page here. You may use following sample code. */
-         //   int orderId =Integer.parseInt(request.getParameter("orderId"));
-            Date OrderDate = new Date(Calendar.getInstance().getTime().getTime());
-           
-             int carId =Integer.parseInt(request.getParameter("carId"));
-             String Status = "Pending";
-             HttpSession session = request.getSession(false);
-             Object loginId= session.getAttribute("loginId");
-             if(loginId!=null)
-             {
-                
-                int userId=new UserDAOImp().getUserByLoginId(loginId.toString()).getUserId();  
-                System.out.println("OrderDate "+OrderDate+" carId "+carId+" userId "+userId+ " Status " +Status );
-                OrderDAOImp DAOImp =new OrderDAOImp();
-                OrderInfo order = new OrderInfo( carId, userId,OrderDate,Status );
-                int orderId=DAOImp.addOrder(order) ; 
-                //alert sms
-                
-                 if(orderId!=0){
-                    System.out.println("Order Booked");
-                    request.setAttribute("orderId",orderId );
-                    new Thread(new TimerClass(System.currentTimeMillis(),orderId)).start();
-                    RequestDispatcher rd = request.getRequestDispatcher("OrderDetails.jsp");
+        int carId=Integer.parseInt(request.getParameter("txtid"));
+    
+            System.out.println("Servlet hai");
+          
+         System.out.println("carId "+carId);
+         
+     OrderDAOImp order = new OrderDAOImp();
+//               boolean confirm=order.confirmOrder(carId) ;
+//               System.out.println("BOOLIAN  conf is "+confirm);
+                 if(order.confirmOrder(carId)){
+                    System.out.println("User Successfully Confirmed Our Record");
+                    request.setAttribute("carId",carId );
+                    RequestDispatcher rd = request.getRequestDispatcher("ConfOrder.jsp");
                     rd.forward(request, response);
                 }
-                else
+            else
                 {
-                    System.out.println("Failed to Order Car !");
-                    out.println("Failed to Order Car ");
-                }
-             }
-             else
-             {
-                 response.sendRedirect("LoginPage.jsp");
-            }
+                    
+                    System.out.println("Failed to Confirm Order !");
+                    out.println("Failed to Order ");
+                    RequestDispatcher rd = request.getRequestDispatcher("CancelOrder.jsp");
+                    rd.forward(request, response);
+                    System.out.println("Failed to Confirm Order !");
+                    out.println("Failed to Order ");
+                }     
+       
         }
+    
+        
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
