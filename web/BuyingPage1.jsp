@@ -54,7 +54,7 @@
                  <a href="OrderModifyPage.jsp?carId=<%=carInfo.getCarId()%>&command=del">buy</a>
                 </td>-->
                 <td>
-                 <a href="AddOrder.do?carId=<%=carInfo.getCarId()%>&command=del">Buy</a>
+                    <a href="AddOrder.do?carId=<%=carInfo.getCarId()%>&command=del"><button onclick="myFunction()">Buy</button> </a>
                 </td>
             </tr>
             <%}%>
@@ -62,5 +62,11 @@
          <p align="center">
              <a href="SellCarPage.jsp" class="btn bg-info ">sell your car here</a>
         </p>
+        <script>
+            function myFunction(){
+                alert(" Please Confirm Your Order Within 10minuts!!\n\
+                       (Buy Giving Time It Will Auto Cancel)");
+            }
+            </script>
     </body>
 </html>

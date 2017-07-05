@@ -145,7 +145,7 @@
             </tr>
             <% } %>
         </table>
-        <div id="con" class="container">
+<!--        <div id="con" class="container">
        <h3>Order Summary:</h3>
       
                 <ul>
@@ -153,7 +153,7 @@
            <li>Total Order: ${userInfo.gettotale()}</li>      
        </ul>           
    <br>
-  </div>
+  </div>-->
            
            
    

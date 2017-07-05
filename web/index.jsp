@@ -47,7 +47,7 @@
     </head>
     <body>
 <div id="header">
-  <img id="logo" src="images/carlogo.png" class="img-responsive">
+  <img id="logo" src="images/logo2.png" class="img-responsive">
   <form name="searchform" id="search">
     <input type="text" name="search" class="img-rounded " onkeyup="searchinfo()" placeholder="Search..">
     <input type="button" class="img-circle" value="Search">

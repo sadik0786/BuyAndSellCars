@@ -5,25 +5,28 @@
  */
 package com.niit.controler;
 
-import com.niit.model.OrderInfo;
-import com.pro.dao.OrderDAOImp;
-import com.pro.dao.UserDAOImp;
+import com.niit.model.CarInfo;
+import com.pro.dao.CarDAOImp;
+import java.io.File;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.sql.Date;
-import java.util.Calendar;
+import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
+import org.apache.commons.fileupload.FileItem;
+import org.apache.commons.fileupload.disk.DiskFileItemFactory;
+import org.apache.commons.fileupload.servlet.ServletFileUpload;
 
 /**
  *
  * @author Sadik
  */
-public class AdOrderServlet extends HttpServlet {
+public class CustomerUpdtCarImg extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -39,41 +42,37 @@ public class AdOrderServlet extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
-         //   int orderId =Integer.parseInt(request.getParameter("orderId"));
-            Date OrderDate = new Date(Calendar.getInstance().getTime().getTime());
-           
-             int carId =Integer.parseInt(request.getParameter("carId"));
-             String Status = "Pending";
-             HttpSession session = request.getSession(false);
-             Object loginId= session.getAttribute("loginId");
-             if(loginId!=null)
-             {
-                
-                int userId=new UserDAOImp().getUserByLoginId(loginId.toString()).getUserId();  
-                System.out.println("OrderDate "+OrderDate+" carId "+carId+" userId "+userId+ " Status " +Status );
-                OrderDAOImp DAOImp =new OrderDAOImp();
-                OrderInfo order = new OrderInfo( carId, userId,OrderDate,Status );
-                int orderId=DAOImp.addOrder(order) ; 
-                //alert sms
-       
-                
-                 if(orderId!=0){
-                    System.out.println("Order Booked");
-                    request.setAttribute("orderId",orderId );
-                    new Thread(new TimerClass(System.currentTimeMillis(),orderId)).start();
-                    RequestDispatcher rd = request.getRequestDispatcher("OrderDetails.jsp");
+//    int carId=Integer.parseInt(request.getParameter("carId"));
+    String carMake =request.getParameter("carMake");
+    String carModel =request.getParameter("carModel");
+    String variant =request.getParameter("variant");
+    String mfgYear =request.getParameter("mfgYear");
+    String carFuel =request.getParameter("carFuel");
+    String owners =request.getParameter("owners");
+    int price = Integer.parseInt(request.getParameter("price"));
+    int kms =Integer.parseInt(request.getParameter("kms"));
+    int mileage =Integer.parseInt(request.getParameter("mileage"));
+    String branch =request.getParameter("branch");
+    
+    System.out.println("carMake "+carMake+" carModel "+carModel+" varient "+variant+" mfgYear "+mfgYear+
+      " carFuel "+carFuel+ " owners "+owners+ " price "+price+ " kms "+kms+ " mileage "+mileage+ " branch "+branch);
+  
+    CarDAOImp DAOImp =new CarDAOImp();
+    
+     CarInfo car = new CarInfo( carMake, carModel, variant, mfgYear, carFuel, owners, price, kms, mileage,branch );
+                     int carId=DAOImp.addCar(car) ;
+                 if(carId!=0){
+                    System.out.println("User Record Successfully Inserted");
+                    request.setAttribute("carId",carId );
+                    RequestDispatcher rd = request.getRequestDispatcher("CustomerUploadFile.jsp");
                     rd.forward(request, response);
                 }
-                else
+            else
                 {
-                    System.out.println("Failed to Order Car !");
-                    out.println("Failed to Order Car ");
-                }
-             }
-             else
-             {
-                 response.sendRedirect("LoginPage.jsp");
-            }
+                    System.out.println("Failed to Add Car Record!");
+                    out.println("Failed to Add Car ");
+                }     
+       
         }
     }
 

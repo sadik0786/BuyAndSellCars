@@ -5,6 +5,7 @@
  */
 package com.niit.controler;
 
+import com.pro.dao.CarDAOImp;
 import com.pro.dao.OrderDAOImp;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -47,7 +48,9 @@ public class ConfirmOD extends HttpServlet {
                 RequestDispatcher rd = request.getRequestDispatcher("ConfOrder.jsp");
                 rd.forward(request, response);
             }
-            else{
+             else if(cmd.equals("del")){
+             if(order.cancleOrder(carId))
+            {
                 System.out.println("nahi hua Confirm ");
                 out.println("Confirm namhi hua");
                 request.setAttribute("carId",carId );
@@ -55,7 +58,7 @@ public class ConfirmOD extends HttpServlet {
                 rd.forward(request, response);
             }
             }
-            
+            }
             else{
                 System.out.println("nahi hua Confirm ");
                 out.println("Confirm namhi hua");

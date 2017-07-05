@@ -112,7 +112,7 @@ public class OrderDAOImp implements OrderDAO{
     public boolean cancleOrder(int orderId) {
         try {
             PreparedStatement ps=con.prepareStatement("update orderdetails set status='Cancel' where orderid = " + orderId);
-            if(ps.executeUpdate()==1)
+            if(ps.executeUpdate()!=0)
             {
                 System.out.println("Order Cancelled");
                 

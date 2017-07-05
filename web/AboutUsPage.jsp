@@ -37,13 +37,13 @@
                   <img src="images/carlogo.png" height="100" width="300" >
                </div>
                 <div class="adrsLoc">
+                    <h1>Head Office</h1>
                     <p><strong>BuyAndSellCars India Pvt. Ltd,</strong></p>
-                    <p> 305/rart, afkha,irraom, lsfj</p>
-                    <p>Above Tata Motors Showroom </p>
-                    <p>Unit No. 11 & 12,</p> 
-                    <p>Borivali, <span>Mumbai</span> - <span >400025</span>.</p>
+                    <p>Canberra,24,Vittal Mallya Road,Block,Kg Halli</p>
+                    <p>Shanthala Ashok Nagar </p> 
+                    <p>Bengalore, <span>Karnataka</span> - <span >560001</span>.</p>
                     <p>Phone: 1234567890 </p>
-                    <p>Email:  buyandsell99@gmil.com </p>
+                    <p>Email:BuyPvt.Ltd99@gmil.com </p>
                 </div>
             </div>
         </span>																					

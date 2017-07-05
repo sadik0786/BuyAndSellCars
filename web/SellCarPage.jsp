@@ -15,14 +15,14 @@
     <div class="container">
            <h1 aling="center" >Welcome Customer To Sell Your Car</h1>
    
-    <video style="width:50%; height:2%; padding-top: 10px; alignment-adjust: auto; " controls>
+    <video style="width:100%; height:2%; padding-top: 10px; alignment-adjust: auto; " controls>
   <source src="videos/trim.mov" type="video/mp4">
   <source src="videos/vid1.mp4" type="video/ogg">
   Your browser does not support HTML5 video.
     </video>
             <h3>Sell Car Form</h3>
             <hr><div class="container">
-                    <form method="post" action="addcar.do" class="form-horizontal" >
+                    <form method="post" action="customerupdt.do" class="form-horizontal" >
 
                         <div class="form-group">
                             <label class="col-lg-3 control-label">MAKE :</label>

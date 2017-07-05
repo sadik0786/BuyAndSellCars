@@ -18,7 +18,7 @@
         <title>Order Page</title>
     </head>
     <body>
-        <h1>Hello manager<br> welcome to order modifying page</h1>
+        <h1 aling="center">Hello manager welcome to order modifying page</h1>
         <table border="2px" width="50%" >
             <thead>
             
@@ -50,7 +50,7 @@
                   <% System.out.println(orderInfo.getOrderId());%>
                  <td>
                 <form method="post" action="mg.do">
-                        <input type="text" hidden="true"name="txtcmd" value="cancle">
+                        <input type="text" hidden="true"name="txtcmd" value="cancel">
                         <input type="text" hidden="true"name="txtid" value="<%=orderInfo.getOrderId()%>">
                         <button type="submit" class="btn btn-link">Cancel</button>
                     </form>

@@ -60,6 +60,14 @@
         <servlet-name>Compare</servlet-name>
         <servlet-class>com.niit.controler.Compare</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>CustomerUploadCar</servlet-name>
+        <servlet-class>com.niit.controler.CustomerUploadCar</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>CustomerUpdtCarImg</servlet-name>
+        <servlet-class>com.niit.controler.CustomerUpdtCarImg</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>CreateId</servlet-name>
         <url-pattern>/create.do</url-pattern>
@@ -119,6 +127,14 @@
     <servlet-mapping>
         <servlet-name>Compare</servlet-name>
         <url-pattern>/comp.do</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>CustomerUploadCar</servlet-name>
+        <url-pattern>/customerupload.do</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>CustomerUpdtCarImg</servlet-name>
+        <url-pattern>/customerupdt.do</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

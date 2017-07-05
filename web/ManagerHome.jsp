@@ -12,7 +12,8 @@
         <title>Manager home</title>
           
         <link rel="stylesheet" type="text/css" href="cssstyle/ManagerHome.css">
-        <link rel="stylesheet" href="css/bootstrap.min.css"/>
+        <link rel="stylesheet" href="css/bootstrap.min.css">
+        <link rel="stylesheet" type="text/css" href="css/font.css">
           <style>
             body{
                 background: #9acfea;
@@ -22,10 +23,12 @@
     <body>
        <div id="header">
   <img id="logo" src="images/logo2.png" class="img-responsive">
-<form id="search">
+<!--<form id="search">
     <input type="text" name="search" class="img-rounded " placeholder="Search..">
     <input type="button" class="img-circle" value="Search">
-</form></div>
+</form>-->
+
+       </div>
  <div class="container-fluid">
  <div class="row" id="siteheader"> 
 <nav class="navbar navbar-inverse navbar-static-top">
@@ -58,7 +61,7 @@
         </ul>
                <ul  class="nav navbar-nav navbar-right">
               <c:if test="${not empty loginId}">
-                  <li><a href="EditProfile.jsp"><p style="color:pink; font-size:20px">Hello ${loginId}</p></a></li>
+                  <li><a href="EditProfile.jsp"><p style="color:mediumspringgreen; font-size:20px">Hello ${loginId}</p></a></li>
               </c:if>
            <li><a target="_blank" href="Javascript:if(confirm('Do you want to logout?'))
 	{document.location='?logout=now';}Logout.do" class="btn btn-lg" >Log Out</a></li>

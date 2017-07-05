@@ -45,8 +45,8 @@
             }
         </style>
     </head>
-    <body background="images/snap6.jpg">
-        <h1 align="center">HELLO MANAGER WELCOME TO OUR PAGE</h1>
+    <body background="images/.jpg">
+
         <div align="center" class="container">
             <a href="AddCar.jsp" class="button">Add New Car</a>
             <a href="ModifyPage.jsp" class="button"> Modify Car</a>

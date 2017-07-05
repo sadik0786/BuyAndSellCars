@@ -5,25 +5,25 @@
  */
 package com.niit.controler;
 
-import com.niit.model.OrderInfo;
-import com.pro.dao.OrderDAOImp;
-import com.pro.dao.UserDAOImp;
+import java.io.File;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.sql.Date;
-import java.util.Calendar;
-import javax.servlet.RequestDispatcher;
+import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
+import org.apache.commons.fileupload.FileItem;
+import org.apache.commons.fileupload.disk.DiskFileItemFactory;
+import org.apache.commons.fileupload.servlet.ServletFileUpload;
 
 /**
  *
  * @author Sadik
  */
-public class AdOrderServlet extends HttpServlet {
+public class CustomerUploadCar extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -36,43 +36,42 @@ public class AdOrderServlet extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        String[] fields = null;
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
-            /* TODO output your page here. You may use following sample code. */
-         //   int orderId =Integer.parseInt(request.getParameter("orderId"));
-            Date OrderDate = new Date(Calendar.getInstance().getTime().getTime());
-           
-             int carId =Integer.parseInt(request.getParameter("carId"));
-             String Status = "Pending";
-             HttpSession session = request.getSession(false);
-             Object loginId= session.getAttribute("loginId");
-             if(loginId!=null)
-             {
-                
-                int userId=new UserDAOImp().getUserByLoginId(loginId.toString()).getUserId();  
-                System.out.println("OrderDate "+OrderDate+" carId "+carId+" userId "+userId+ " Status " +Status );
-                OrderDAOImp DAOImp =new OrderDAOImp();
-                OrderInfo order = new OrderInfo( carId, userId,OrderDate,Status );
-                int orderId=DAOImp.addOrder(order) ; 
-                //alert sms
-       
-                
-                 if(orderId!=0){
-                    System.out.println("Order Booked");
-                    request.setAttribute("orderId",orderId );
-                    new Thread(new TimerClass(System.currentTimeMillis(),orderId)).start();
-                    RequestDispatcher rd = request.getRequestDispatcher("OrderDetails.jsp");
-                    rd.forward(request, response);
-                }
-                else
-                {
-                    System.out.println("Failed to Order Car !");
-                    out.println("Failed to Order Car ");
-                }
-             }
-             else
-             {
-                 response.sendRedirect("LoginPage.jsp");
+          String UPLOAD_DIRECTORY = "images"+File.separator+"car_images";
+        System.out.println("Uploading file");
+         
+            if (ServletFileUpload.isMultipartContent(request)) {
+                System.out.println("Starting upload");
+                try {
+                    System.out.println("Upload Started");
+                    List<FileItem> multiparts = new ServletFileUpload(new DiskFileItemFactory()).parseRequest(request);
+                    System.out.println("mparts" + multiparts);
+
+                    fields = new String[multiparts.size()];
+                    int i = 0;
+              String name=null;
+                    for (FileItem item : multiparts) {
+                        System.out.println("isFormField" + item.isFormField());
+                        if (!item.isFormField()) {
+
+                           name = new File(item.getName()).getName();
+                           String basePath = getServletContext().getRealPath("/");
+                           String uploadPath = basePath.substring(0,basePath.indexOf("build")) + "/web/" +  UPLOAD_DIRECTORY;
+                           // String uploadPath = UPLOAD_DIRECTORY;
+                            System.out.println("name : " + uploadPath + File.separator + name);
+                            item.write(new File(uploadPath + File.separator + request.getParameter("carId")+".jpg"));
+                            
+
+                            System.out.println("File Uploaded Successfully.......");
+                            response.sendRedirect("UserPage.jsp");
+                        }  
+        }
+    }
+             catch (Exception ex) {
+                  Logger.getLogger(UpdateCarImageServlet.class.getName()).log(Level.SEVERE, null, ex);
+              }
             }
         }
     }

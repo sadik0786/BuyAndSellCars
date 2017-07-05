@@ -73,8 +73,8 @@
           <img class="first-slide" src="images/sl1.jpg" alt="First slide">
           <div class="container">
             <div class="carousel-caption">
-              <h1>Car Images</h1>
-              <p>You Can Look More Car .</p>
+              <h1>New Upcoming Car</h1>
+              <p>You Can Look More Car</p>
               <p><a class="btn btn-lg btn-primary" href="Gallery.html" role="button" target="NavigationFrame">See More Cars</a></p>
             </div>
           </div>
@@ -83,8 +83,8 @@
           <img class="second-slide" src="images/sl3.jpg" alt="second slide">
           <div class="container">
             <div class="carousel-caption">
-              <h1>One more for good.</h1>
-              <p>Cars</p>
+              <h1>New Upcoming Car</h1>
+              <p>You Can Look More Car</p>
               <p><a class="btn btn-lg btn-primary" href="#" role="button">Browse gallery</a></p>
             </div>
           </div>
@@ -93,8 +93,8 @@
           <img class="third-slide" src="images/sl4.jpg" alt="third slide">
           <div class="container">
             <div class="carousel-caption">
-              <h1>One more for good.</h1>
-              <p>Cars</p>
+              <h1>New Upcoming Car</h1>
+              <p>You Can Look More Car</p>
               <p><a class="btn btn-lg btn-primary" href="#" role="button">Browse gallery</a></p>
             </div>
           </div>
@@ -103,8 +103,8 @@
           <img class="forth-slide" src="images/sl5.jpg" alt="forth slide">
           <div class="container">
             <div class="carousel-caption">
-              <h1>One more for good.</h1>
-              <p>Cars</p>
+              <h1>New Upcoming Car</h1>
+              <p>You Can Look More Car</p>
               <p><a class="btn btn-lg btn-primary" href="#" role="button">Browse gallery</a></p>
             </div>
           </div>
@@ -113,8 +113,8 @@
           <img class="fifth-slide" src="images/sl6.jpg" alt="fifth slide">
           <div class="container">
             <div class="carousel-caption">
-              <h1>One more for good.</h1>
-              <p>Cars</p>
+              <h1>New Upcoming Car</h1>
+              <p>You Can Look More Car</p>
               <p><a class="btn btn-lg btn-primary" href="#" role="button">Browse gallery</a></p>
             </div>
           </div>
